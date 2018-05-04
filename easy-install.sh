@@ -49,6 +49,7 @@ cd /etc/nginx/sites-available/
 wget -O "$DOMAIN" https://goo.gl/PLMm51
 sed -i -e "s/example.com/$DOMAIN/" "$DOMAIN"
 sudo ln -s /etc/nginx/sites-available/"$DOMAIN" /etc/nginx/sites-enabled/
+sudo systemctl restart nginx.service
 cd /var/www/"$BOTNAME"
 botpress init "$BOTNAME"
 pm2 start npm -- start
