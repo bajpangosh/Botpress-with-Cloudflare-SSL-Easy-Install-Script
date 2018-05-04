@@ -41,7 +41,6 @@ sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
 wget -O nginx.conf https://goo.gl/n8crcR
-sudo mkdir /var/www/"$BOTNAME"
 
 echo "Sit back and relax :) ......"
 sleep 2;
