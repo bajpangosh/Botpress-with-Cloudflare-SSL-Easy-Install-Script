@@ -41,7 +41,7 @@ sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
 wget -O nginx.conf https://goo.gl/n8crcR
-
+sudo mkdir /var/www/botpress
 echo "Sit back and relax :) ......"
 sleep 2;
 cd /etc/nginx/sites-available/
@@ -49,7 +49,6 @@ wget -O "$DOMAIN" https://goo.gl/wLzhbv
 sed -i -e "s/example.com/$DOMAIN/" "$DOMAIN"
 sudo ln -s /etc/nginx/sites-available/"$DOMAIN" /etc/nginx/sites-enabled/
 sudo systemctl restart nginx.service
-cd /var/www/
+cd /var/www/botpress
 botpress init "$BOTNAME"
-cd /var/www/"$BOTNAME"
 pm2 start npm -- start
