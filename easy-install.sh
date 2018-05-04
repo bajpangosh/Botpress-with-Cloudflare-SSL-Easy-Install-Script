@@ -46,10 +46,11 @@ sudo mkdir /var/www/"$BOTNAME"
 echo "Sit back and relax :) ......"
 sleep 2;
 cd /etc/nginx/sites-available/
-wget -O "$DOMAIN" https://goo.gl/PLMm51
+wget -O "$DOMAIN" https://goo.gl/wLzhbv
 sed -i -e "s/example.com/$DOMAIN/" "$DOMAIN"
 sudo ln -s /etc/nginx/sites-available/"$DOMAIN" /etc/nginx/sites-enabled/
 sudo systemctl restart nginx.service
-cd /var/www/"$BOTNAME"
+cd /var/www/
 botpress init "$BOTNAME"
+cd /var/www/"$BOTNAME"
 pm2 start npm -- start
